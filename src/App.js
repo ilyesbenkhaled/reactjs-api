@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './logo192.png';
+
+
 class App extends Component {
     constructor() {
         super();
@@ -17,9 +20,11 @@ class App extends Component {
     render() {
       return (
            <div className="App">
+           <img src={logo}/>
           {   
             this.state.monsters.map(monster => (
               <h2 key={monster.id}>{monster.name}</h2>
+              
               ))
           }
           </div>
