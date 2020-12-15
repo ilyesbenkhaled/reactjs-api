@@ -2,7 +2,7 @@
   "name": "react-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ilyesbenkhaled.github.io/reactjs-api/",
+  "homepage": "https://ilyesbenkhaled.github.io/reactjs-api/public/index.html",
   "dependencies": {
     "@reactivex/rxjs": "^6.6.3",
     "@testing-library/jest-dom": "^5.11.4",
