@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import logo from './logo192.png';
+import Footer from './components/footer/footer.component';
+import { Card } from './components/card/card.component';
+import ReactDom from 'react-dom';
 
-
-class App extends Component {
+class App extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -19,15 +21,17 @@ class App extends Component {
 
     render() {
       return (
-           <div className="App">
-           <img src={logo}/>
-          {   
-            this.state.monsters.map(monster => (
-              <h2 key={monster.id}>{monster.name}</h2>
-              
-              ))
-          }
-          </div>
+           <div className=''>
+               <img src={logo}/>
+              {   
+                this.state.monsters.map(monster => (
+                  <Card monster={monster} />
+                  ))
+
+              }
+              <Footer />
+              </div>
+        
         );
     }
 }
