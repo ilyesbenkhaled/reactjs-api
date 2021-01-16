@@ -1,15 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import logo from './logo192.png';
 import Footer from './components/footer/footer.component';
-import { Card } from './components/card/card.component';
-import ReactDom from 'react-dom';
+import { Cardlist } from './components/card-list/card-list.component';
+// import ReactDom from 'react-dom';
+import SearchBox from './components/search-box/search-box.component';
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-          monsters: []
+          monsters: [],
+          searchField: '',
+          filteredData: ''
         };
     }
 
@@ -20,18 +23,28 @@ class App extends React.Component {
         }
 
     render() {
+      const { monsters, searchField } = this.state;
+      const filteredData = monsters.filter(monster => {
+      return monster.name.toLowerCase().includes(searchField.toLowerCase())
+      });
+      console.log(filteredData)
       return (
-           <div className=''>
-               <img src={logo}/>
-              {   
-                this.state.monsters.map(monster => (
-                  <Card monster={monster} />
-                  ))
 
-              }
+           <div>
+               <img src={logo} alt="logo"/>
+               <SearchBox
+                handleInputChange={e => this.setState({ searchField: e.target.value}) }
+                placeholder='monsters search' />
+
+                <Cardlist monsters={this.state.monsters}/>
+
+                <div>
+                  {this.state.filteredData}
+                </div>
+
               <Footer />
               </div>
-        
+
         );
     }
 }
